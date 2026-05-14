@@ -3,7 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
   <title>Amethyst i-Ready Assistant</title>
+
   <link rel="icon" type="image/png" href="icon.png" />
 
   <style>
@@ -20,11 +22,11 @@
       overflow-x: hidden;
       position: relative;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
+      justify-content: center;
     }
 
-    /* Background Animation */
     .bg-animation {
       position: fixed;
       inset: 0;
@@ -37,73 +39,149 @@
       position: absolute;
       top: -80px;
       border-radius: 50%;
-      background: linear-gradient(135deg, rgba(155, 102, 255, 0.25), rgba(115, 31, 255, 0.15));
+      background: linear-gradient(
+        135deg,
+        rgba(155, 102, 255, 0.25),
+        rgba(115, 31, 255, 0.15)
+      );
       animation: fall linear infinite;
     }
 
     @keyframes fall {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: 1;
+      }
+
+      90% {
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(120vh) rotate(360deg);
+        opacity: 0;
+      }
     }
 
-    .circle:nth-child(1) { left: 5%; width: 60px; height: 60px; animation-duration: 11s; }
-    .circle:nth-child(2) { left: 18%; width: 30px; height: 30px; animation-duration: 8s; animation-delay: 2s; }
-    .circle:nth-child(3) { left: 35%; width: 75px; height: 75px; animation-duration: 14s; animation-delay: 1s; }
-    .circle:nth-child(4) { left: 50%; width: 40px; height: 40px; animation-duration: 9s; animation-delay: 3s; }
-    .circle:nth-child(5) { left: 65%; width: 55px; height: 55px; animation-duration: 13s; }
-    .circle:nth-child(6) { left: 80%; width: 25px; animation-duration: 10s; animation-delay: 4s; } /* Fixed semicolon */
+    .circle:nth-child(1) {
+      left: 5%;
+      width: 60px;
+      height: 60px;
+      animation-duration: 11s;
+    }
 
-    /* UI Content Styling */
-    .container {
+    .circle:nth-child(2) {
+      left: 18%;
+      width: 30px;
+      height: 30px;
+      animation-duration: 8s;
+      animation-delay: 2s;
+    }
+
+    .circle:nth-child(3) {
+      left: 35%;
+      width: 75px;
+      height: 75px;
+      animation-duration: 14s;
+      animation-delay: 1s;
+    }
+
+    .circle:nth-child(4) {
+      left: 50%;
+      width: 40px;
+      height: 40px;
+      animation-duration: 9s;
+      animation-delay: 3s;
+    }
+
+    .circle:nth-child(5) {
+      left: 65%;
+      width: 55px;
+      height: 55px;
+      animation-duration: 13s;
+    }
+
+    .circle:nth-child(6) {
+      left: 80%;
+      width: 25px; /* Added missing semicolon */
+      height: 25px;
+      animation-duration: 10s;
+      animation-delay: 1s;
+    }
+
+    /* Main Website Interface Container */
+    .main-card {
       position: relative;
       z-index: 2;
-      background: white;
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(155, 102, 255, 0.1);
-      text-align: center;
-      max-width: 400px;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      border-radius: 24px;
+      padding: 40px 30px;
       width: 90%;
+      max-width: 450px;
+      box-shadow: 0 20px 40px rgba(115, 31, 255, 0.1);
+      text-align: center;
     }
 
-    .copy-box {
-      width: 100%;
-      padding: 12px;
-      border: 2px solid #e1d5f5;
-      border-radius: 8px;
-      margin-bottom: 15px;
-      font-size: 16px;
-      color: #6c5a80;
-      background: #faf8ff;
+    .brand-title {
+      font-size: 28px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #9b66ff, #731fff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin: 0 0 10px 0;
     }
 
-    .copy-btn {
+    .brand-subtitle {
+      font-size: 14px;
+      color: #8a7b9c;
+      margin: 0 0 30px 0;
+    }
+
+    /* Clipboard Copy Button Styling */
+    .btn-copy {
       background: linear-gradient(135deg, #9b66ff, #731fff);
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 16px 32px;
       font-size: 16px;
-      font-weight: 600;
-      border-radius: 8px;
+      font-weight: 700;
+      border-radius: 12px;
       cursor: pointer;
-      transition: transform 0.1s, opacity 0.2s;
       width: 100%;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 16px rgba(115, 31, 255, 0.25);
     }
 
-    .copy-btn:active {
-      transform: scale(0.98);
+    .btn-copy:hover {
+      opacity: 0.95;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(115, 31, 255, 0.35);
     }
 
-    .copy-btn:hover {
-      opacity: 0.9;
+    .btn-copy:active {
+      transform: translateY(1px);
+    }
+
+    .btn-copy.success {
+      background: #2ec4b6;
+      box-shadow: 0 4px 16px rgba(46, 196, 182, 0.3);
+    }
+
+    /* Payload text hidden completely from sight */
+    .hidden-payload {
+      display: none;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Circles -->
+  <!-- Falling Purple Circles Background Animation -->
   <div class="bg-animation">
     <div class="circle"></div>
     <div class="circle"></div>
@@ -113,34 +191,65 @@
     <div class="circle"></div>
   </div>
 
-  <!-- Main UI Elements -->
-  <div class="container">
-    <h2>Amethyst Assistant</h2>
-    <input type="text" id="textToCopy" class="copy-box" value="Text to be copied!" readonly />
-    <button id="copyButton" class="copy-btn">Copy Text</button>
-  </div>
+  <!-- Main Website Interface Container -->
+  <main class="main-card">
+    <h1 class="brand-title">Amethyst</h1>
+    <p class="brand-subtitle">i-Ready Extension Hub & Injection Tool</p>
 
-  <!-- JavaScript Functionality -->
+    <!-- Interactive Copy Button -->
+    <button class="btn-copy" id="copyBtn">Copy Assistant Script</button>
+    
+    <!-- String hidden away inside data attribute -->
+    <div id="secretPayload" class="hidden-payload" data-code="javascript:fetch('amethyst.dev').then(r=>r.text()).then(eval);"></div>
+  </main>
+
+  <!-- Functionality Engine -->
   <script>
-    document.getElementById('copyButton').addEventListener('click', () => {
-      const inputElement = document.getElementById('textToCopy');
-      
-      // Use modern clipboard API
-      navigator.clipboard.writeText(inputElement.value)
-        .then(() => {
-          const btn = document.getElementById('copyButton');
-          btn.textContent = 'Copied!';
-          btn.style.background = '#47c9a2'; // Changes button color to green on success
-          
-          // Reset button text after 2 seconds
+    const copyBtn = document.getElementById('copyBtn');
+    const secretDiv = document.getElementById('secretPayload');
+
+    copyBtn.addEventListener('click', async () => {
+      // Pulling code payload safely from data attribute storage
+      const scriptText = secretDiv.getAttribute('data-code');
+
+      try {
+        await navigator.clipboard.writeText(scriptText);
+        
+        // UI Success Feedback Transitions
+        copyBtn.textContent = 'Copied to Clipboard!';
+        copyBtn.classList.add('success');
+        
+        setTimeout(() => {
+          copyBtn.textContent = 'Copy Assistant Script';
+          copyBtn.classList.remove('success');
+        }, 2000);
+
+      } catch (err) {
+        console.error('Secure clipboard blocked, applying fallback mechanism.', err);
+        
+        // Fallback architecture using an off-screen temporary textarea element
+        const tempTextArea = document.createElement('textarea');
+        tempTextArea.value = scriptText;
+        tempTextArea.style.position = 'fixed'; 
+        tempTextArea.style.left = '-999999px';
+        
+        document.body.appendChild(tempTextArea);
+        tempTextArea.select();
+        
+        try {
+          document.execCommand('copy');
+          copyBtn.textContent = 'Copied to Clipboard!';
+          copyBtn.classList.add('success');
           setTimeout(() => {
-            btn.textContent = 'Copy Text';
-            btn.style.background = 'linear-gradient(135deg, #9b66ff, #731fff)';
+            copyBtn.textContent = 'Copy Assistant Script';
+            copyBtn.classList.remove('success');
           }, 2000);
-        })
-        .catch(err => {
-          console.error('Failed to copy text: ', err);
-        });
+        } catch (fallbackErr) {
+          console.error('Fallback copy strategy failed.', fallbackErr);
+        }
+        
+        document.body.removeChild(tempTextArea);
+      }
     });
   </script>
 
