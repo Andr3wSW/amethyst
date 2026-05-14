@@ -347,6 +347,10 @@
           <a href="#features" class="btn secondary-btn">
             LEARN MORE
           </a>
+
+          <a id="copyBtn" class="btn primary-btn" href="#" data-code="i'll paste it in later">
+            COPY BOOKMARKLET
+          </a>
         </div>
       </div>
 
@@ -408,6 +412,27 @@
     </footer>
 
   </div>
+
+ <script>
+document.getElementById('copyBtn').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const codeStringToCopy = this.getAttribute('data-code');
+
+  navigator.clipboard.writeText(codeStringToCopy)
+    .then(() => {
+      const originalText = this.innerText;
+      this.innerText = "COPIED!";
+      
+      setTimeout(() => {
+        this.innerText = originalText;
+      }, 2000);
+    })
+    .catch(err => {
+      console.error("Failed to copy bookmarklet: ", err);
+    });
+});
+</script>
 
 </body>
 </html>
