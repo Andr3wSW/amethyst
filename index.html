@@ -21,10 +21,6 @@
       color: #4a3e56;
       overflow-x: hidden;
       position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
     }
 
     .bg-animation {
@@ -107,82 +103,221 @@
 
     .circle:nth-child(6) {
       left: 80%;
-      width: 25px; /* Added missing semicolon */
+      width: 25px;
       height: 25px;
-      animation-duration: 10s;
-      animation-delay: 1s;
+      animation-duration: 7s;
+      animation-delay: 2s;
     }
 
-    /* Main Website Interface Container */
-    .main-card {
+    .circle:nth-child(7) {
+      left: 92%;
+      width: 50px;
+      height: 50px;
+      animation-duration: 12s;
+      animation-delay: 4s;
+    }
+
+    .page {
       position: relative;
       z-index: 2;
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.5);
-      border-radius: 24px;
-      padding: 40px 30px;
-      width: 90%;
-      max-width: 450px;
-      box-shadow: 0 20px 40px rgba(115, 31, 255, 0.1);
-      text-align: center;
-    }
-
-    .brand-title {
-      font-size: 28px;
-      font-weight: 800;
-      background: linear-gradient(135deg, #9b66ff, #731fff);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      margin: 0 0 10px 0;
-    }
-
-    .brand-subtitle {
-      font-size: 14px;
-      color: #8a7b9c;
-      margin: 0 0 30px 0;
-    }
-
-    /* Clipboard Copy Button Styling */
-    .btn-copy {
-      background: linear-gradient(135deg, #9b66ff, #731fff);
-      color: white;
-      border: none;
-      padding: 16px 32px;
-      font-size: 16px;
-      font-weight: 700;
-      border-radius: 12px;
-      cursor: pointer;
       width: 100%;
-      transition: all 0.2s ease;
-      box-shadow: 0 4px 16px rgba(115, 31, 255, 0.25);
+      max-width: 1200px;
+      margin: auto;
+      padding: 60px 24px;
     }
 
-    .btn-copy:hover {
-      opacity: 0.95;
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 420px;
+      gap: 60px;
+      align-items: center;
+      min-height: 90vh;
+    }
+
+    .hero-text h1 {
+      margin: 0;
+      font-size: 64px;
+      line-height: 0.95;
+      font-weight: 900;
+      color: #731fff;
+      letter-spacing: -0.04em;
+      text-shadow: 0 4px 18px rgba(115, 31, 255, 0.18);
+    }
+
+    .hero-text p {
+      margin-top: 24px;
+      font-size: 20px;
+      line-height: 1.7;
+      color: #5d4f6b;
+      max-width: 650px;
+    }
+
+    .buttons {
+      margin-top: 34px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      text-decoration: none;
+      padding: 18px 30px;
+      border-radius: 16px;
+      font-weight: 800;
+      font-size: 16px;
+      transition: 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .primary-btn {
+      background: #8033ff;
+      color: white;
+      box-shadow: 0 8px 22px rgba(128, 51, 255, 0.35);
+    }
+
+    .primary-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(115, 31, 255, 0.35);
+      background: #9452ff;
+      box-shadow: 0 10px 28px rgba(128, 51, 255, 0.45);
     }
 
-    .btn-copy:active {
-      transform: translateY(1px);
+    .secondary-btn {
+      border: 2px solid #d7c6ff;
+      color: #731fff;
+      background: rgba(255,255,255,0.75);
+      backdrop-filter: blur(6px);
     }
 
-    .btn-copy.success {
-      background: #2ec4b6;
-      box-shadow: 0 4px 16px rgba(46, 196, 182, 0.3);
+    .secondary-btn:hover {
+      transform: translateY(-2px);
+      border-color: #8033ff;
     }
 
-    /* Payload text hidden completely from sight */
-    .hidden-payload {
-      display: none;
+    .mockup {
+      background: rgba(255,255,255,0.85);
+      border: 2px solid #e5d7ff;
+      border-radius: 28px;
+      padding: 22px;
+      box-shadow:
+        0 14px 40px rgba(128, 51, 255, 0.12),
+        0 4px 12px rgba(128, 51, 255, 0.08);
+      backdrop-filter: blur(8px);
+    }
+
+    .mockup-top {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+
+    .dot:nth-child(1) {
+      background: #ff66be;
+    }
+
+    .dot:nth-child(2) {
+      background: #ffd166;
+    }
+
+    .dot:nth-child(3) {
+      background: #7dff9b;
+    }
+
+    .mockup h2 {
+      margin: 0;
+      font-size: 22px;
+      color: #731fff;
+    }
+
+    .mockup-box {
+      margin-top: 18px;
+      background: white;
+      border: 2px solid #eadfff;
+      border-radius: 18px;
+      padding: 18px;
+      font-size: 15px;
+      line-height: 1.6;
+      color: #4d3f5c;
+    }
+
+    .features {
+      margin-top: 120px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .feature-card {
+      background: rgba(255,255,255,0.85);
+      border: 2px solid #e6d8ff;
+      border-radius: 24px;
+      padding: 28px;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 8px 24px rgba(128, 51, 255, 0.08);
+    }
+
+    .feature-card h3 {
+      margin-top: 0;
+      margin-bottom: 14px;
+      color: #731fff;
+      font-size: 22px;
+    }
+
+    .feature-card p {
+      margin: 0;
+      line-height: 1.7;
+      color: #5e526d;
+    }
+
+    footer {
+      margin-top: 120px;
+      text-align: center;
+      color: #8e7ea0;
+      font-size: 15px;
+      padding-bottom: 30px;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-text h1 {
+        font-size: 52px;
+      }
+
+      .mockup {
+        max-width: 500px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 {
+        font-size: 42px;
+      }
+
+      .hero-text p {
+        font-size: 18px;
+      }
+
+      .btn {
+        width: 100%;
+      }
     }
   </style>
 </head>
+
 <body>
 
-  <!-- Falling Purple Circles Background Animation -->
   <div class="bg-animation">
+    <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
     <div class="circle"></div>
@@ -191,67 +326,114 @@
     <div class="circle"></div>
   </div>
 
-  <!-- Main Website Interface Container -->
-  <main class="main-card">
-    <h1 class="brand-title">Amethyst</h1>
-    <p class="brand-subtitle">i-Ready Extension Hub & Injection Tool</p>
+  <div class="page">
 
-    <!-- Interactive Copy Button -->
-    <button class="btn-copy" id="copyBtn">Copy Assistant Script</button>
-    
-    <!-- String hidden away inside data attribute -->
-    <div id="secretPayload" class="hidden-payload" data-code="javascript:fetch('amethyst.dev').then(r=>r.text()).then(eval);"></div>
-  </main>
+    <section class="hero">
 
-  <!-- Functionality Engine -->
-  <script>
-    const copyBtn = document.getElementById('copyBtn');
-    const secretDiv = document.getElementById('secretPayload');
+      <div class="hero-text">
+        <h1>Amethyst<br>i-Ready Assistant</h1>
 
-    copyBtn.addEventListener('click', async () => {
-      // Pulling code payload safely from data attribute storage
-      const scriptText = secretDiv.getAttribute('data-code');
+        <p>
+          A sleek AI-powered Chrome extension that helps solve i-Ready
+          questions directly from your side panel using Gemini AI.
+          Fast, modern, and built for students.
+        </p>
 
-      try {
-        await navigator.clipboard.writeText(scriptText);
-        
-        // UI Success Feedback Transitions
-        copyBtn.textContent = 'Copied to Clipboard!';
-        copyBtn.classList.add('success');
-        
-        setTimeout(() => {
-          copyBtn.textContent = 'Copy Assistant Script';
-          copyBtn.classList.remove('success');
-        }, 2000);
+        <div class="buttons">
+          <a href="Amethyst.zip" class="btn primary-btn" download>
+            DOWNLOAD EXTENSION
+          </a>
 
-      } catch (err) {
-        console.error('Secure clipboard blocked, applying fallback mechanism.', err);
-        
-        // Fallback architecture using an off-screen temporary textarea element
-        const tempTextArea = document.createElement('textarea');
-        tempTextArea.value = scriptText;
-        tempTextArea.style.position = 'fixed'; 
-        tempTextArea.style.left = '-999999px';
-        
-        document.body.appendChild(tempTextArea);
-        tempTextArea.select();
-        
-        try {
-          document.execCommand('copy');
-          copyBtn.textContent = 'Copied to Clipboard!';
-          copyBtn.classList.add('success');
-          setTimeout(() => {
-            copyBtn.textContent = 'Copy Assistant Script';
-            copyBtn.classList.remove('success');
-          }, 2000);
-        } catch (fallbackErr) {
-          console.error('Fallback copy strategy failed.', fallbackErr);
-        }
-        
-        document.body.removeChild(tempTextArea);
-      }
+          <a href="#features" class="btn secondary-btn">
+            LEARN MORE
+          </a>
+
+          <a id="copyBtn" class="btn primary-btn" href="#" data-code="i'll paste it in later">
+          <a id="copyBtn" class="btn primary-btn" href="#" data-code="You've been trolled">
+            COPY BOOKMARKLET
+          </a>
+        </div>
+      </div>
+
+      <div class="mockup">
+
+        <div class="mockup-top">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+
+        <h2>Amethyst Assistant</h2>
+
+        <div class="mockup-box">
+          <strong>✓ Screen captured</strong><br><br>
+
+          Solving the visible math problem using Gemini AI...<br><br>
+
+          <strong>Answer:</strong><br>
+          Divide both sides by 4 to isolate x.<br><br>
+
+          x = 6
+        </div>
+
+      </div>
+
+    </section>
+
+    <section class="features" id="features">
+
+      <div class="feature-card">
+        <h3>AI Problem Solving</h3>
+        <p>
+          Instantly analyzes visible questions on screen and provides
+          clear explanations and answers.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Diagnostic Mode</h3>
+        <p>
+          Toggle a more advanced Gemini model for deeper analysis and
+          smarter responses.
+        </p>
+      </div>
+
+      <div class="feature-card">
+        <h3>Beautiful Interface</h3>
+        <p>
+          Designed with a smooth purple aesthetic, glassmorphism,
+          and animated backgrounds.
+        </p>
+      </div>
+
+    </section>
+
+    <footer>
+      © 2026 Amethyst i-Ready Assistant
+    </footer>
+
+  </div>
+
+ <script>
+document.getElementById('copyBtn').addEventListener('click', function(event) {
+  event.preventDefault();
+
+  const codeStringToCopy = this.getAttribute('data-code');
+
+  navigator.clipboard.writeText(codeStringToCopy)
+    .then(() => {
+      const originalText = this.innerText;
+      this.innerText = "COPIED!";
+
+      setTimeout(() => {
+        this.innerText = originalText;
+      }, 2000);
+    })
+    .catch(err => {
+      console.error("Failed to copy bookmarklet: ", err);
     });
-  </script>
+});
+</script>
 
 </body>
 </html>
